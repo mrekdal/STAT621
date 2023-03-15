@@ -75,9 +75,21 @@ temperature_matrix_fahr <- temperature_matrix * 1.8 + 32
 # Exercise 8
 # Construct a factor for temperatures in 2019 with these levels, <5, 5-15, 15 and above
 # Not sure if we were meant to create the factor from the numeric data?
+# I use the cut function to categorize the data with cutoffs, must include endpoints to make three groups.
+# The intervals are closed on the right by default (includes the limit in the left interval).  We don't want that.
+
 
 temperature_levels <- c( "L", "M", "H" )
 temperature_breaks <- c( -Inf, 5.0, 15.0, Inf )
+
+## Create a test set, to make that we have two values in each category, i.e. the intervals are closed on the left.
+
+test_values =  c( 0, 4.9, 5, 5.1, 15, 15.1 )
+test_factor <- cut( test_values, right=FALSE, breaks = temperature_breaks, labels = temperature_levels )
+summary( test_factor )
+
+## Create a factor for 2019 temperatures
+
 temperature_2019_factor <- cut( temperature_2019, breaks = temperature_breaks, labels = temperature_levels )
 
 ## Do the same for 2018
