@@ -90,11 +90,11 @@ summary( test_factor )
 
 ## Create a factor for 2019 temperatures
 
-temperature_2019_factor <- cut( temperature_2019, breaks = temperature_breaks, labels = temperature_levels )
+temperature_2019_factor <- cut( temperature_2019, breaks = temperature_breaks, labels = temperature_levels, right = FALSE )
 
 ## Do the same for 2018
 
-temperature_2018_factor <- cut( temperature_2018, breaks = temperature_breaks, labels = temperature_levels )
+temperature_2018_factor <- cut( temperature_2018, breaks = temperature_breaks, labels = temperature_levels, right = FALSE )
 
 ## Now compare the two factors
 
